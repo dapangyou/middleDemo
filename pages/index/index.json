@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "v-like": "../../Components/like/like",
+    "v-movie": "../../Components/classic/movie/movie",
+    "v-epsoide": "../../Components/epsoide/epsoide",
+    "v-navi": "../../Components/navi/navi",
+    "v-music": "../../Components/classic/music/music",
+    "v-essay": "../../Components/classic/essay/essay"
+  },
+  "navigationBarTitleText": "林间有风"
+}

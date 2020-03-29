@@ -1,0 +1,23 @@
+.movie_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.movie_container .movie_img {
+    width: 750rpx;
+    height: 500rpx;
+}
+
+.movie_container .tag {
+    width: 46rpx;
+    height: 142rpx;
+    position: relative;
+    right: 310rpx;
+    bottom: 60rpx;
+}
+
+.movie_container .content {
+    font-size: 36rpx;
+    max-width: 550rpx;
+}

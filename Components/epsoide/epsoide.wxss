@@ -1,0 +1,42 @@
+.epsoide_container {
+    display: inline-flex;
+    height: 60rpx;
+}
+
+.epsoide_container .left_container {
+    display: flex;
+    align-items: baseline;
+}
+
+.epsoide_container .number {
+    font-size: 32rpx;
+}
+
+.epsoide_container .plain {
+    font-size: 60rpx;
+    font-weight: 800;
+    margin-right: 14rpx;
+    line-height: 60rpx;
+}
+
+.line {
+    border-left: 1px solid black;
+    height: 44rpx;
+    margin-right: 14rpx;
+}
+
+.epsoide_container .right_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rpx;
+}
+
+.month {
+    font-size: 24rpx;
+    line-height: 24rpx;
+}
+
+.year {
+    font-size: 25rpx;
+    margin-top: 5rpx;
+}
