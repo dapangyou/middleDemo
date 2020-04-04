@@ -1,3 +1,4 @@
+<wxs src="../../utils/filter.wxs" module="util" />
 <view class="container">
     <view class="header">
         <image src="{{book.image}}" />
@@ -6,12 +7,74 @@
     </view>
     <view class="sub_container">
         <text class="headline">短评</text>
+        <!-- <text class="shadow">{{comment==false}}</text> -->
         <view class="comment-container">
-            <block wx:for="{{commons}}" wx:key="id">
-                <v-tag text="{{item.content}}">
+            <block wx:for="{{util.limit(commons,6)}}" wx:key="id" class="comment-container">
+                <v-tag text="{{item.content}}" tag-class="{{tool.highlight(index)}}">
                     <text slot="after">{{'+'+item.nums}}</text>
                 </v-tag>
             </block>
         </view>
     </view>
+    <!-- 内容简介 -->
+    <view class="sub_container">
+        <text class="headline">内容简介</text>
+        <text class="content" decode="{{true}}">{{util.format(book.summary)}}</text>
+    </view>
+    <view class="sub_container">
+        <text class="headline">书本信息</text>
+        <view class="detail-container">
+            <view class="vertical description">
+                <text>出版社</text>
+                <text>出版年</text>
+                <text>页数</text>
+                <text>定价</text>
+                <text>装帧</text>
+            </view>
+            <view class="vertical">
+                <text>{{book.publisher}}</text>
+                <text>{{book.pubdate}}</text>
+                <text>{{book.pages}}</text>
+                <text>{{book.price}}</text>
+                <text>{{book.binding}}</text>
+            </view>
+        </view>
+    </view>
 </view>
+<view class="post-container" wx:if="{{!posting}}">
+    <view bind:tap="onFakePost" class="post-fake">
+        <text>输入短评</text>
+    </view>
+    <view class="like-container">
+        <v-like class="like"></v-like>
+    </view>
+</view>
+<view class="posting-container" wx:if="{{posting}}">
+    <view class="post-header">
+        <text>仅可点击标签+1</text>
+        <text class="cancel" bind:tap="onCancel">取消</text>
+    </view>
+    <view class="comment-container">
+        <block wx:for="{{util.limit(commons,3)}}" wx:key="id" class="comment-container">
+            <v-tag text="{{item.content}}" tag-class="{{tool.highlight(index)}}">
+                <text slot="after">{{'+'+item.nums}}</text>
+            </v-tag>
+        </block>
+    </view>
+    <input class="post" placeholder="短评最多12个字"></input>
+</view>
+<v-mask wx:if="{{posting}}"></v-mask>
+<wxs module="tool">
+    var highlight  = function(index) {
+        if(index == 0) {
+            return 'ex-tag1'
+        }
+        if(index == 1) {
+            return 'ex-tag2';
+        }
+        return '';
+    }
+    module.exports = {
+        highlight: highlight
+    }
+</wxs>

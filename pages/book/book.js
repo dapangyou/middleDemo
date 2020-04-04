@@ -1,11 +1,16 @@
 // pages/book/book.js
+import {
+  random
+} from '../../utils/common.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    searching: false,
+    more: ''
   },
 
   /**
@@ -47,6 +52,17 @@ Page({
     ]
     this.setData({
       books
+    });
+  },
+
+  onSearching(event) {
+    this.setData({
+      searching: true
+    });
+  },
+  onCancel(event) {
+    this.setData({
+      searching: random()
     });
   },
 
@@ -97,5 +113,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 监听用户到达底部的事件
+  onReachBottom() {
+    this.setData({
+      more: random(16)
+    });
   }
 })

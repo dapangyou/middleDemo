@@ -9,7 +9,9 @@ Page({
     detail: null,
     likeStatus: false,
     likeCount: 0,
-    book: {}
+    book: {},
+    // 评论输入框
+    posting: false,
   },
 
   /**
@@ -17,13 +19,13 @@ Page({
    */
   onLoad: function (options) {
     const bid = options.bid;
-    console.log(bid);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    // wx.showLoading();
     let tempCommons = {
       "comment": [{
           "content": "welcome",
@@ -74,7 +76,7 @@ Page({
       "pubdate": "201005",
       "publisher": "人民邮电出版社",
       "subtitle": "全球开源社区集体智慧结晶，领略Linux内核的绝美风光",
-      "summary": "众所周知，Linux操作系统的源代码复杂、文档少，对程序员的要求高，要想看懂这些代码并不是一件容易事...",
+      "summary": `JavaScript（简称“JS”） 是一种具有函数优先的轻量级，解释型或即时编译型的编程语言。虽然它是作为开发Web页面的脚本语言而出名的，但是它也被用到了很多非浏览器环境中，JavaScript 基于原型编程、多范式的动态脚本语言，并且支持面向对象、命令式和声明式（如函数式编程）风格`,
       "title": "深入Linux内核架构",
       "translator": [
         "郭旭"
@@ -86,6 +88,18 @@ Page({
       likeStatus: likeStatus.like_status,
       book: book
     });
+  },
+
+  onFakePost(event) {
+    this.setData({
+      posting: true
+    })
+  },
+
+  onCancel(event) {
+    this.setData({
+      posting: false
+    })
   },
 
   /**

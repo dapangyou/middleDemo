@@ -1,15 +1,10 @@
-// Components/tag/tag.js
+// Components/mask/mask.js
 Component({
   /**
    * 组件的属性列表
    */
-  options: {
-    multipleSlots: true
-  },
-  externalClasses: ['tag-class'],
   properties: {
-    text: String,
-    num: String
+
   },
 
   /**

@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "previe-cmp": "/Components/preview/index"
+  }
 }

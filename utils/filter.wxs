@@ -1,0 +1,16 @@
+var format = function (content) {
+    if (!content) {
+        return;
+    }
+    var reg = getRegExp('\\\\n', 'g');
+    console.log(content.replace(reg, '\n'));
+    return content.replace(reg, '\n');
+}
+
+var limit = function (array, limit) {
+    return array.slice(0, limit);
+}
+module.exports = {
+    limit: limit,
+    format: format
+}
