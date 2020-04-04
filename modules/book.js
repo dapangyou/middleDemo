@@ -9,4 +9,6 @@ class BookModel extends HTTP {
             method: 'GET'
         })
     }
+
+    search() {}
 }
